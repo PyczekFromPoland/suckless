@@ -1,0 +1,13 @@
+--- dwm.c
++++ dwm.c
+@@ -1331,8 +1332,8 @@ resizemouse(const Arg *arg)
+ 				continue;
+ 			lasttime = ev.xmotion.time;
+ 
+-			nw = MAX(ev.xmotion.x - ocx - 2 * c->bw + 1, 1);
+-			nh = MAX(ev.xmotion.y - ocy - 2 * c->bw + 1, 1);
++			nw = MAX(ocw + (ev.xmotion.x - x), 1);
++			nh = MAX(och + (ev.xmotion.y - y), 1);
+ 			if (c->mon->wx + nw >= selmon->wx && c->mon->wx + nw <= selmon->wx + selmon->ww
+ 			&& c->mon->wy + nh >= selmon->wy && c->mon->wy + nh <= selmon->wy + selmon->wh)
+ 			{
